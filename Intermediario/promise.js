@@ -35,3 +35,45 @@ function buscarDados(){
 buscarDados()
 .then(dados=> console.log("Usuário:",dados))
 .catch(err => console.log("Erro: ", err));
+
+
+// Encadeando Promises
+function passo1() {
+    return new Promise(resolve => setTimeout(() => 
+        resolve("Passo 1"), 1000));
+}
+function passo2() {
+    return new Promise(resolve => setTimeout(() => 
+    resolve("Passo2"), 1000));
+}
+function passo3() {
+    return new Promise(resolve => setTimeout(() =>
+    resolve("Passo3"),1000));
+}
+
+passo1()
+.then(res => {
+    console.log(res);
+    return passo2();
+})
+.then(res => {
+    console.log(res);
+    return passo3();
+})
+.then(res => console.log(res));
+
+//Promise.all espera todas terminarem
+Promise.all([
+    passo1(),
+    passo2(),
+    passo3()
+]).then(resultados => console.log(resultados));
+
+//Promise.race pega a primeira que terminar
+Promise.race([
+    passo1(),
+    passo2(),
+    passo3()
+  ]).then(resultado => console.log("Mais rápida:", resultado));
+
+  
