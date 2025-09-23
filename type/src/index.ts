@@ -1,0 +1,1 @@
+let distancia: number = 20;
