@@ -49,7 +49,6 @@ const maluco = {nome: "João"};
 comprimentar.call(maluco, "Olá");
 
 // Apply()
-
 function gritar(saudacao, despedida) {
     console.log(`${saudacao}, meu nome é ${this.nome}. ${despedida}`);
 }
