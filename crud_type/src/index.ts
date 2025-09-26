@@ -25,9 +25,9 @@ import {
     const atualizado = await updateUser(novo.id!, { name: "Henrique Atualizado", email: "henriq@novo.com" });
     console.log("Usuário atualizado?", atualizado);
   
-    // DELETE
-    const deletado = await deleteUser(novo.id!);
-    console.log("Usuário deletado?", deletado);
+    // // DELETE
+    // const deletado = await deleteUser(novo.id!);
+    // console.log("Usuário deletado?", deletado);
   }
   
   main().catch(console.error);
