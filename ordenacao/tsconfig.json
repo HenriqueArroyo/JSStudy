@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                      // Gera código compatível com ES6
+    "module": "commonjs",                 // Suporte a require/module.exports
+    "outDir": "./dist",                   // Saída dos arquivos compilados
+    "rootDir": "./src",                   // Pasta onde ficam os arquivos .ts
+    "strict": true,                       // Ativa verificações rigorosas
+    "esModuleInterop": true,              // Compatibilidade com módulos CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],             // Onde ficam os arquivos TS
+  "exclude": ["node_modules"]             // Ignora dependências
+}
