@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Biblioteca_1 = require("./services/Biblioteca");
+const helpers_1 = require("./utils/helpers");
+const biblioteca = new Biblioteca_1.Biblioteca();
+biblioteca.adicionarLivro({ id: 1, titulo: "Clean Code", preco: 120, promocao: true });
+biblioteca.adicionarLivro({ id: 2, titulo: "Refactoring", preco: 200, promocao: false });
+biblioteca.adicionarLivro({ id: 3, titulo: "Domain-Driven Design", preco: 180, promocao: true });
+biblioteca.removerLivro(1);
+console.log("Todos os livros: ");
+biblioteca.listarLivros().forEach(l => console.log((0, helpers_1.formatarLivro)(l)));
+console.log("\nLivros em promoção: ");
+console.log(biblioteca.filtrarPromocao());
+console.log("\nMédia dos preços: ", biblioteca.calcularMediaPreco());
