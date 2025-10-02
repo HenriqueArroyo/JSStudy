@@ -1,24 +1,17 @@
-import Image from "next/image";
-
-const nome: string = "Compras";
-
-const numeros: number[] = []
-
-const soma = (...numeros: number[]) :number => {
-  let total = 0;
-  for (let n of numeros) {
-      total += n;
-  }
-  return total;
-};
-
-
-export default function Home() {
+"use client"
+import React, { useState, useEffect } from 'react';
+export default function Relogio() {
+  const [dateTime, setDateTime] = useState<string>(new Date().toLocaleString());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDateTime(new Date().toLocaleString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
-  <div>
-    <a href="#compras">
-    <p>Olá {soma(15,24,39,4,18)}</p>    
-    </a>
-  </div>
+    <div>
+      <h1 id="titulo">Relógio 🕗</h1>
+      <p id="relogio">{dateTime}</p>
+    </div>
   );
 }
