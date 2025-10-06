@@ -176,52 +176,52 @@
 
 // // 10. Crud Simples
 
-// type Task = {
-//     id: number;
-//     descricao: string;
-//     concluida: boolean;
-// }
+type Task = {
+    id: number;
+    descricao: string;
+    concluida: boolean;
+}
 
-// let task: Task[] = [];
-// let nextId = 1;
+let task: Task[] = [];
+let nextId = 1;
 
-// const addTask = (descricao: string): void => {
-//     const novaTask: Task = {id: nextId++, descricao, concluida: false};
-//     task.push(novaTask);
-//     console.log(`Tarefa adicionada: ${descricao}`);
-// };
+const addTask = (descricao: string): void => {
+    const novaTask: Task = {id: nextId++, descricao, concluida: false};
+    task.push(novaTask);
+    console.log(`Tarefa adicionada: ${descricao}`);
+};
 
-// const listTasks = (): void => {
-//     console.log("\nLista de tarefas: ");
-//     task.forEach((task) => {
-//         console.log(`[${task.concluida ? "X" : " "}] ${task.id} - ${task.descricao}`);
-//     });
-// };
+const listTasks = (): void => {
+    console.log("\nLista de tarefas: ");
+    task.forEach((task) => {
+        console.log(`[${task.concluida ? "X" : " "}] ${task.id} - ${task.descricao}`);
+    });
+};
 
-// const toggleTask = (id: number): void => {
-//     const tas = task.find((t) => t.id === id);
-//     if (tas) {
-//         tas.concluida = !tas.concluida;
-//         console.log(`Tarefa ${id} marcada como ${tas.concluida ? "Concluída" : "Pendente"}`);
-//     } else {
-//         console.log("Tarefa não encontrada!");
-//     }
-// }
+const toggleTask = (id: number): void => {
+    const tas = task.find((t) => t.id === id);
+    if (tas) {
+        tas.concluida = !tas.concluida;
+        console.log(`Tarefa ${id} marcada como ${tas.concluida ? "Concluída" : "Pendente"}`);
+    } else {
+        console.log("Tarefa não encontrada!");
+    }
+}
 
-// const removeTask = (id: number): void => {
-//     task = task.filter((t) => t.id !== id);
-//     console.log(`Tarefa ${id} removida.`);
-// };
+const removeTask = (id: number): void => {
+    task = task.filter((t) => t.id !== id);
+    console.log(`Tarefa ${id} removida.`);
+};
 
-// addTask("Estudar Typescript");
-// addTask("Fazer exercícios de async/await");
-// listTasks();
+addTask("Estudar Typescript");
+addTask("Fazer exercícios de async/await");
+listTasks();
 
-// toggleTask(1);
-// listTasks();
+toggleTask(1);
+listTasks();
 
-// removeTask(2);
-// listTasks();
+removeTask(2);
+listTasks();
 
 // 1. Tipos Primitivos
 
