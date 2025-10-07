@@ -22,3 +22,4 @@ const ordenacaoSelecao = (lista:number[]):number[] => {
 let listTest: number[] = [44,21,3,85,52];
 
 console.log(ordenacaoSelecao(listTest));
+
