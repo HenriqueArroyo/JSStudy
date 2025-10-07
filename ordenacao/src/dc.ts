@@ -27,9 +27,20 @@ const numItens = (arr: number[]): number => {
 
 console.log(numItens([4,5,3,4,5,6,7,8]))
 
-const maiorValor()
 
+const maiorValor = (arr: number[]): number => {
 
+    // CasoBase
+    if (arr.length === 0) return Number.MIN_VALUE;
+
+    const [primeiro, ...resto] = arr;
+
+    const maxResto = maiorValor(resto);
+
+    return primeiro > maxResto ? primeiro: maxResto
+}
+
+console.log(maiorValor([2,10,52,3,7]))
 // const somaDC = (arr: number[]): number => {
 //     // 🧱 Caso base
 //     if (arr.length === 0) return 0;
