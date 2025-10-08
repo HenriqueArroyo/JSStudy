@@ -45,3 +45,5 @@ let itemId = <string>productName;       // sintaxe antiga de assertion
 
 // Exibe no console o valor atual da variável "direction"
 console.log(direction); // saída: "Esquerda"
+
+
