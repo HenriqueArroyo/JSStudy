@@ -21,9 +21,8 @@ export default function Home() {
 
     setTasks([...tasks, newTask]); 
     // Atualiza o array de tarefas adicionando a nova no final.
-
     setNewTask(""); 
-    // Limpa o campo de texto depois de adicionar.
+
   };
 
   // Função que remove uma tarefa com base no índice dela na lista.
