@@ -3,10 +3,10 @@
 // pois ele usa estados e interações (não pode ser apenas renderizado no servidor).
 
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 // Importa o hook useState do React, usado para criar e atualizar variáveis reativas (estados).
 
 export default function Home() {
-  // Define o componente principal da página (Home) e o exporta como padrão.
 
   // Cria um estado "tasks" que é um array de strings, e uma função "setTasks" para atualizá-lo.
   const [tasks, setTasks] = useState<string[]>([]);
@@ -34,13 +34,10 @@ export default function Home() {
   // O que será mostrado na tela (HTML/JSX)
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6">
-      {/* Container principal centralizado na tela com espaçamento e altura mínima total */}
 
       <h1 className="text-3xl font-bold mb-4">Minha To-Do List</h1>
-      {/* Título do aplicativo */}
 
       <div className="flex gap-2 mb-4">
-        {/* Linha contendo o campo de texto e o botão "Adicionar" */}
 
         <input
           className="border p-2 rounded w-64"
@@ -61,7 +58,6 @@ export default function Home() {
       </div>
 
       <ul className="w-64">
-        {/* Lista (ul) que vai mostrar todas as tarefas */}
 
         {tasks.map((task, index) => (
           // Percorre cada item do array "tasks" e cria um <li> para cada um.
