@@ -16,12 +16,17 @@ export default function Home() {
 
       <h1 className="text-3xl font-bold mb-4">Seja Bem-vindo, meu caro!</h1>
 
-      <div className="flex gap-2 mb-4">
         <p>Esta é primeira primeira experiência com NextJS, experimente!
         </p>
-        <br />
-
-      </div>
+   
+        <Image
+  src="/nerd.webp"       // Caminho relativo à pasta "public"
+  alt="Logo do projeto" // Texto alternativo (acessibilidade)
+  width={200}           // Largura da imagem
+  height={200}          // Altura da imagem
+  className="rounded-lg" // (opcional) estilização via Tailwind
+/>
+   
 
 
     </main>

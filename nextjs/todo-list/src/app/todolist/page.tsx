@@ -1,45 +1,59 @@
-"use client"; 
-// Diz ao Next.js que este componente será executado no navegador (cliente), 
+"use client";
+// Diz ao Next.js que este componente será executado no navegador (cliente),
 // pois ele usa estados e interações (não pode ser apenas renderizado no servidor).
 
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import styles from "../styles/Page.module.css"
+import styles from "../styles/Page.module.css";
 // Importa o hook useState do React, usado para criar e atualizar variáveis reativas (estados).
 
 export default function Home() {
+  interface Task {
+    id: string;
+  titulo: string;
+  concluida: boolean;
+  }
+
+
 
   // Cria um estado "tasks" que é um array de strings, e uma função "setTasks" para atualizá-lo.
-  const [tasks, setTasks] = useState<string[]>([]);
-  
+  const [tasks, setTasks] = useState<Task[]>([]);
+
   // Cria um estado "newTask" para guardar o texto que o usuário digita no input.
   const [newTask, setNewTask] = useState("");
 
-  // Função que adiciona uma nova tarefa à lista.
   const addTask = () => {
-    if (!newTask.trim()) return; 
-    // Se o campo estiver vazio (ou só com espaços), não faz nada.
+    if (!newTask.trim()) return;
 
-    setTasks([...tasks, newTask]); 
-    // Atualiza o array de tarefas adicionando a nova no final.
-    setNewTask(""); 
+    const novaTarefa: Task = {
+      id: crypto.randomUUID(),
+      titulo: newTask,
+      concluida: false,
+    };
 
+    setTasks([...tasks, novaTarefa]);
+    setNewTask("");
   };
 
   // Função que remove uma tarefa com base no índice dela na lista.
-  const removeTask = (index: number) => {
-    setTasks(tasks.filter((_, i) => i !== index)); 
-    // Cria um novo array com todas as tarefas, menos a que tem o índice clicado.
+  const removeTask = (id: string) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  // O que será mostrado na tela (HTML/JSX)
+  //Concluir tarefa
+  const toggleConcluir = (id: string) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, concluida: !task.concluida } : task
+      )
+    );
+  };
+
   return (
     <main className={styles.menu}>
-
       <h1 className="text-3xl font-bold mb-4">To-Do List</h1>
 
       <div className="flex gap-2 mb-4">
-
         <input
           className="border p-2 rounded w-64"
           value={newTask}
@@ -49,36 +63,37 @@ export default function Home() {
           // Texto de dica dentro do campo.
         />
 
-        <button
-          className={styles.adicionar}
-          onClick={addTask}
-          // Ao clicar, executa a função addTask() para adicionar a nova tarefa.
+        <button className={styles.adicionar} onClick={addTask}
+        // Ao clicar, executa a função addTask() para adicionar a nova tarefa.
         >
           Adicionar
         </button>
       </div>
 
       <ul className="w-64">
-
-        {tasks.map((task, index) => (
+        {tasks.map((task) => (
           // Percorre cada item do array "tasks" e cria um <li> para cada um.
           <li
-            key={index}
+            key={task.id}
             // "key" ajuda o React a identificar cada item da lista de forma única.
-            className="flex justify-between items-center bg-gray-100 p-2 rounded mb-2"
-            // Define estilo visual para cada item da lista.
-          >
-            {task}
-            {/* Mostra o texto da tarefa */}
+            className={`flex justify-between items-center bg-gray-100 p-2 rounded mb-2 ${
+              task.concluida ? "bg-green-100" : "bg-gray-100"
+            }`}>
 
-            <button
-              className={styles.remover}
-              onClick={() => removeTask(index)}
-              // Quando clicado, chama removeTask() com o índice daquela tarefa.
-            >
-              X
-              {/* Botão para remover a tarefa */}
+              <span className={`flex-1 ${task.concluida ? "line-through text-gray-500" : ""}`}>
+                {task.titulo}
+              </span>
+            
+            <button className={styles.concluir} onClick={() => toggleConcluir(task.id)}>
+              {task.concluida ? "Desfazer" : "Concluir"}
             </button>
+
+            <button className={styles.remover} onClick={() => removeTask(task.id)}>
+            X
+            </button>
+
+
+
           </li>
         ))}
       </ul>
