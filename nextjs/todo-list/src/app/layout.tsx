@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata = {
-  title: "To-Do List",
+  title: "Portifólio",
   description: "App simples com Next.js",
 };
 

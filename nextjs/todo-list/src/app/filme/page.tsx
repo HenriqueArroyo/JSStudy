@@ -90,7 +90,7 @@ export default function Home() {
             setNota(e.target.value === "" ? "" : Number(e.target.value))
           }
           // Atualiza o estado "newTask" conforme o usuário digita.
-          placeholder="Digite uma nota"
+          placeholder="Nota"
           // Texto de dica dentro do campo.
         />
         <input
@@ -134,9 +134,9 @@ export default function Home() {
      
          
 
-            <select  className="border p1 rounded w-16 text-center"  value={filme.nota} onChange={(e) => atualizarNota(filme.id, Number(e.target.value))}  id="">
+            <select  className="border p1 rounded w-16 text-center"  value={Number(filme.nota)} onChange={(e) => atualizarNota(filme.id, Number(e.target.value))}  id="">
              {[...Array(11)].map((_, i) => (
-                <option key={i} value={10 - i}>⭐ {10 - i}/10</option>
+                <option key={i} value={10 - i}>⭐ {10 - i}</option>
              ))}
             </select>
 

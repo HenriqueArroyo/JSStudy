@@ -13,6 +13,7 @@ export default function Navbar() {
         <li><Link href="/">Início</Link></li>
         <li><Link href="/todolist">To-Do-List</Link></li>
         <li><Link href="/filme">Filmes</Link></li>
+        <li><Link href="/clima">Clima</Link></li>
       </ul>
     </nav>
         </main>

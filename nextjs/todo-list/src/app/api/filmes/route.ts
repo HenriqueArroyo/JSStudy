@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
+// Importa NextResponse, uma utilidade do Next.js para construir respostas HTTP
+// (JSON, status codes, headers etc.) dentro de rotas do App Router.
+
 import { db } from "@/lib/db";
+// Importa o pool/cliente de conexão com o banco (definido em src/lib/db.ts).
+// `db` é usado para executar queries SQL contra o MySQL.
 
 //Listar filmes
 export async function GET() {
