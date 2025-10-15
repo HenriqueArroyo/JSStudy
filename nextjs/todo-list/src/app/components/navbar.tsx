@@ -12,6 +12,7 @@ export default function Navbar() {
       <ul className={styles.links}>
         <li><Link href="/">Início</Link></li>
         <li><Link href="/todolist">To-Do-List</Link></li>
+        <li><Link href="/filme">Filmes</Link></li>
       </ul>
     </nav>
         </main>
