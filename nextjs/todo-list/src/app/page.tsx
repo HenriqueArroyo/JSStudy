@@ -16,7 +16,7 @@ export default function Home() {
 
       <h1 className="text-3xl font-bold mb-4">Seja Bem-vindo, meu caro!</h1>
 
-        <p>Esta é primeira primeira experiência com NextJS, experimente!
+        <p>Esta é primeira primeira experiência com NextJS, experimente.
         </p>
    
         <Image
